@@ -251,7 +251,6 @@ Counter tree(const char* dir_name, Level level, bool all_files_flag, bool file_o
         sprintf(line, "%s%s", separator, (index == number_of_files - 1) ? left_down_corner : right_t);
         sprintf(line + strlen(line), "%s%s ", horizontal_line, horizontal_line);
 
-        //// at least one of the flags to open bracket is true
         const bool opening_bracket = file_size_flag || file_owner_flag || file_group_flag || file_protections_flag;
         if (opening_bracket)
             sprintf(line + strlen(line), "%c", '[');
@@ -311,7 +310,6 @@ Counter tree(const char* dir_name, Level level, bool all_files_flag, bool file_o
 }
 
 int main(int argc, char* argv[]) {
-    // bool throw_error = false;
     Counter counter;
     counter.file = 0;
     counter.directory = 0;
@@ -356,7 +354,6 @@ int main(int argc, char* argv[]) {
             index += 1 + level_depends;
 
         } else {
-            /// it's a value
             index += 1;
             number_of_values += 1;
         }
@@ -385,7 +382,6 @@ int main(int argc, char* argv[]) {
             index += 1 + level_depends;
 
         } else {
-            /// it's a value
 
             print_directory_name(argv[index]);
             Counter counter_local = tree(argv[index], level, all_files_flag, file_owner_flag, file_group_flag,
